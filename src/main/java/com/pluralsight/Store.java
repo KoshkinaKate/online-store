@@ -58,7 +58,8 @@ public class Store {
                 String name = parts[1];
                 double price = Double.parseDouble(parts[2]);
                 inventory.add(new Product(id, name, price));
-            } br.close();
+            }
+            br.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,10 +69,18 @@ public class Store {
 
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner) {
         // This method should display a list of products from the inventory,
-        // and prompt the user to add items to their cart. The method should
-        // prompt the user to enter the ID of the product they want to add to
-        // their cart. The method should
-        // add the selected product to the cart ArrayList.
+        System.out.println("Available products:");
+        for (Product product : inventory) {
+            System.out.println(product.getId() + " | " + product.getName() + " | " + product.getPrice());
+        }
+
+        // and prompt the user to add items to their cart.
+        System.out.println("Enter the product ID to and it will be added to the cart : ");
+        String inputId = scanner.next();
+        Product product = findProductById(inputId,inventory);
+
+        // The method should prompt the user to enter the ID of the product they want to add to their cart.
+        //  The method should add the selected product to the cart ArrayList.
     }
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
