@@ -95,10 +95,32 @@ public class Store {
             return;
         }
         // sum of items
-        
+        System.out.println("Your Cart: ");
+        totalAmount = 0; //resets
+        for (Product product : cart) {
+            System.out.println(product.getId() + " | " + product.getName() + " | $" + product.getPrice());
+            totalAmount += product.getPrice();
+        }
+        System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
+        //removing items
+        System.out.println("Would you like to remove any item from your cart? YES OR NO ");
+        String answer = scanner.nextLine().trim();
+        if (answer.equalsIgnoreCase("yes")){
+        System.out.println("Please enter product ID to remove it from the cart: ");
+        String productId = scanner.nextLine().trim();
+        Product removeProduct = findProductById(productId, cart);
 
-        // This method should display the items in the cart ArrayList, along
-        // with the total cost of all items in the cart. The method should
+            if (removeProduct != null) {
+                cart.remove(removeProduct);
+                totalAmount -= removeProduct.getPrice(); // Update total amount
+                System.out.println(removeProduct.getName() + " has been removed from your cart.");
+                System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
+            } else {
+                System.out.println("Product not found in cart.");
+            }
+        }
+
+
         // prompt the user to remove items from their cart by entering the ID
         // of the product they want to remove. The method should update the cart ArrayList and totalAmount
         // variable accordingly.
