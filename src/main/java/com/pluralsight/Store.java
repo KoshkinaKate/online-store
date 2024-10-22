@@ -130,10 +130,13 @@ public class Store {
         System.out.println("Check Out Summary: ");
         totalAmount = 0; //resets
         for (Product product : cart) {
-            System.out.println(product.getId() + " | " + product.getName() + " | $" + product.getPrice());
             totalAmount += product.getPrice();
         }
         System.out.printf("Total Amount: $%.2f%n", totalAmount);
+
+        // Ask the user to confirm the purchase. ask how ?? scanner . Plus is this method should
+       // be called in display cards?
+
 
         // This method should calculate the total cost of all items in the cart,
         // and display a summary of the purchase to the user. The method should

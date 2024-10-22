@@ -1,17 +1,16 @@
-# Project Title
+# Online Store 
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
-
-![Class Diagram](path/to/your/class_diagram.png)
+This Java console application simulates an online store, allowing users to view products, manage a shopping cart, and proceed to checkout. Users can browse available products, add or remove items from the cart, and confirm purchases.
 
 ## User Stories
 
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
+The following user stories guided the development of this application:
 
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+- **As a customer**, I want to view all available products so that I can decide what to purchase.
+- **As a customer**, I want to add products to my cart so that I can purchase them later.
+- **As a customer**, I want to remove products from my cart so that I can manage my purchases.
 
 ## Setup
 
@@ -34,37 +33,21 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- Java 17: This project is written using Java version 17.
+- IntelliJ IDEA: Used as the primary Integrated Development Environment (IDE) for coding and running the project.
 
 ## Demo
-
-Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
-
-![Application Screenshot](path/to/your/screenshot.png)
+### Displaying Available Product and The Total Price
+![AvailableProduct&TotalAmount.png](imgs/AvailableProduct%26TotalAmount.png)
+### Removing Product from the cart
+![RemovingProducts.png](imgs/RemovingProducts.png)
 
 ## Future Work
 
-Outline potential future enhancements or functionalities you might consider adding:
+- User Authentication: Allow users to create accounts and log in to manage their orders.
+- Payment Integration: Implement a simulated payment system for users to enter payment details.
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
-
-## Resources
-
-List resources such as tutorials, articles, or documentation that helped you during the project.
-
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
-
-## Team Members
-
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
 
 ## Thanks
 
-Express gratitude towards those who provided help, guidance, or resources:
-
-- Thank you to [Mentor's Name] for continuous support and guidance.
-- A special thanks to all teammates for their dedication and teamwork.
+- Thank you to Raymond for continuous support and guidance.
