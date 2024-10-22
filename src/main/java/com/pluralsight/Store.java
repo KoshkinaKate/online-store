@@ -76,10 +76,16 @@ public class Store {
 
         // and prompt the user to add items to their cart.
         System.out.println("Enter the product ID to and it will be added to the cart : ");
-        String inputId = scanner.next();
+        String inputId = scanner.nextLine();
         Product product = findProductById(inputId,inventory);
 
         // The method should prompt the user to enter the ID of the product they want to add to their cart.
+        if (product != null){
+            cart.add(product);
+            System.out.println(product.getName() + " added to your shopping cart.");
+        }else{
+            System.out.println("Sorry, product not found. ");
+        }
         //  The method should add the selected product to the cart ArrayList.
     }
 
@@ -99,6 +105,13 @@ public class Store {
     }
 
     public static Product findProductById(String id, ArrayList<Product> inventory) {
+
+        for (Product product : inventory) {
+            // Compare product IDs ignoring case and trimming spaces
+            if (product.getId().equalsIgnoreCase(id.trim())) {
+                return product;
+            }
+        }
         // This method should search the inventory ArrayList for a product with
         // the specified ID, and return the corresponding com.pluralsight.Product object. If
         // no product with the specified ID is found, the method should return
