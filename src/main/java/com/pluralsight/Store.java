@@ -75,7 +75,7 @@ public class Store {
         }
 
         // and prompt the user to add items to their cart.
-        System.out.println("Enter the product ID to and it will be added to the cart : ");
+        System.out.println("Enter the product ID to add it to your cart : ");
         String inputId = scanner.nextLine();
         Product product = findProductById(inputId,inventory);
 
@@ -86,10 +86,17 @@ public class Store {
         }else{
             System.out.println("Sorry, product not found. ");
         }
-        //  The method should add the selected product to the cart ArrayList.
     }
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
+        //handeling cases for empty cart
+        if (cart.isEmpty()){
+            System.out.println("Oops, your cart is empty. ");
+            return;
+        }
+        // sum of items
+        
+
         // This method should display the items in the cart ArrayList, along
         // with the total cost of all items in the cart. The method should
         // prompt the user to remove items from their cart by entering the ID
