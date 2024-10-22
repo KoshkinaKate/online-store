@@ -107,15 +107,10 @@ public class Store {
     public static Product findProductById(String id, ArrayList<Product> inventory) {
 
         for (Product product : inventory) {
-            // Compare product IDs ignoring case and trimming spaces
             if (product.getId().equalsIgnoreCase(id.trim())) {
                 return product;
             }
         }
-        // This method should search the inventory ArrayList for a product with
-        // the specified ID, and return the corresponding com.pluralsight.Product object. If
-        // no product with the specified ID is found, the method should return
-        // null.
-        return null; //remove it later
+        return null;
     }
 }
