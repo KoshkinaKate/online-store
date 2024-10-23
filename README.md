@@ -38,9 +38,13 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 ### Displaying Available Product and The Total Price
-![AvailableProduct&TotalAmount.png](imgs/AvailableProduct%26TotalAmount.png)
+![AllProducts.png](imgs/AllProducts.png)
+### Adding Product to the cart
+![AddingProductsToTheCart.png](imgs/AddingProductsToTheCart.png)
 ### Removing Product from the cart
-![RemovingProducts.png](imgs/RemovingProducts.png)
+![RemovingProductsToTheCart.png](imgs/RemovingProductsToTheCart.png)
+### Check Out Option
+![CheckOut.png](imgs/CheckOut.png)
 
 ## Future Work
 

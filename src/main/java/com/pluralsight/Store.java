@@ -82,7 +82,9 @@ public class Store {
             }
 
             // and prompt the user to add items to their cart
-            System.out.println("Enter the product ID to add it to your cart: ");
+            System.out.println("==============================================\n" +
+                    "Enter the product ID to add it to your cart: ");
+
             String inputId = scanner.nextLine();
             Product product = findProductById(inputId, inventory);
 
@@ -152,17 +154,21 @@ public class Store {
         System.out.printf("Total Amount: $%.2f%n", totalAmount);
         System.out.println("Are you confirming a purchase? YES/NO");
         String answer = scanner.nextLine().trim();
-        if (answer.equalsIgnoreCase("yes")){
+        if (answer.equalsIgnoreCase("yes")) {
             System.out.printf("Thank you for conformation the total amount is $%.2f%n", totalAmount);
             System.out.println("Please enter the bill amount to receive the change.");
             double receivedMoney = scanner.nextDouble();
             scanner.nextLine();
-            double change = totalAmount - receivedMoney;
-            System.out.printf("Your change: $%.2f%n" , change);
+            if (receivedMoney >= totalAmount) {
+                double change = receivedMoney - totalAmount;
+                System.out.printf("Your change: $%.2f%n", change);
+            }else{
+                System.out.println("Sorry, it is not enough to cover your purchase");
+            }
         }
+        cart.clear();
 
-
-        // Ask the user to confirm the purchase. ask how ?? scanner . Plus is this method should
+        // Ask the user to confirm the purchase. Plus is this method should
        // be called in display cards?
 
 
