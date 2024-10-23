@@ -21,11 +21,12 @@ public class Store {
         int choice = -1;
 
         // Display menu and get user choice until they choose to exit
-        while (choice != 3) {
+        while (choice != 4) {
             System.out.println("Welcome to the Online com.pluralsight.Store!");
             System.out.println("1. Show Products");
             System.out.println("2. Show Cart");
-            System.out.println("3. Exit");
+            System.out.println("3. Check Out");
+            System.out.println("4. Exit");
 
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -39,6 +40,9 @@ public class Store {
                     displayCart(cart, scanner, totalAmount);
                     break;
                 case 3:
+                   checkOut(cart, totalAmount, scanner);
+                    break;
+                case 4:
                     System.out.println("Thank you for shopping with us!");
                     break;
                 default:
@@ -103,7 +107,7 @@ public class Store {
         }
         System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
         //removing items
-        System.out.println("Would you like to remove any item from your cart? YES OR NO ");
+        System.out.println("Would you like to remove any item from your cart? YES or NO ");
         String answer = scanner.nextLine().trim();
         if (answer.equalsIgnoreCase("yes")){
         System.out.println("Please enter product ID to remove it from the cart: ");
@@ -118,10 +122,12 @@ public class Store {
             } else {
                 System.out.println("Product not found in cart.");
             }
+        }else{
+            System.out.println("You are transferred back to the main menu");
         }
     }
 
-    public static void checkOut(ArrayList<Product> cart, double totalAmount) {
+    public static void checkOut(ArrayList<Product> cart, double totalAmount, Scanner scanner) {
         if (cart.isEmpty()) {
             System.out.println("Your cart is empty.");
             return;
@@ -133,6 +139,12 @@ public class Store {
             totalAmount += product.getPrice();
         }
         System.out.printf("Total Amount: $%.2f%n", totalAmount);
+        System.out.println("Are you confirming a purchase? YES or NO");
+        String answer = scanner.nextLine().trim();
+        if (answer.equalsIgnoreCase("yes")){
+            System.out.println("");
+        }
+
 
         // Ask the user to confirm the purchase. ask how ?? scanner . Plus is this method should
        // be called in display cards?
