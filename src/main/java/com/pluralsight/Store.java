@@ -72,25 +72,36 @@ public class Store {
     }
 
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner) {
-        // This method should display a list of products from the inventory,
-        System.out.println("Available products:");
-        for (Product product : inventory) {
-            System.out.println(product.getId() + " | " + product.getName() + " | " + product.getPrice());
+        String moreProduct = "yes";
+
+        while (moreProduct.equalsIgnoreCase("yes")) {
+            // This method should display a list of products from the inventory
+            System.out.println("Available products:");
+            for (Product product : inventory) {
+                System.out.println(product.getId() + " | " + product.getName() + " | $" + product.getPrice());
+            }
+
+            // and prompt the user to add items to their cart
+            System.out.println("Enter the product ID to add it to your cart: ");
+            String inputId = scanner.nextLine();
+            Product product = findProductById(inputId, inventory);
+
+            // The method should prompt the user to enter the ID of the product they want to add to their cart
+            if (product != null) {
+                cart.add(product);
+                System.out.println(product.getName() + " added to your shopping cart.");
+            } else {
+                System.out.println("Sorry, product not found.");
+            }
+
+            // Ask if the user wants to add another item
+            System.out.println("Do you want to add another item? YES/NO");
+            moreProduct = scanner.nextLine().trim(); //infinite loop without it
         }
 
-        // and prompt the user to add items to their cart.
-        System.out.println("Enter the product ID to add it to your cart : ");
-        String inputId = scanner.nextLine();
-        Product product = findProductById(inputId,inventory);
-
-        // The method should prompt the user to enter the ID of the product they want to add to their cart.
-        if (product != null){
-            cart.add(product);
-            System.out.println(product.getName() + " added to your shopping cart.");
-        }else{
-            System.out.println("Sorry, product not found. ");
-        }
+        System.out.println("Returning to the main menu.");
     }
+
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
         //handling cases for empty cart
@@ -107,7 +118,7 @@ public class Store {
         }
         System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
         //removing items
-        System.out.println("Would you like to remove any item from your cart? YES or NO ");
+        System.out.println("Would you like to remove any item from your cart? YES/NO ");
         String answer = scanner.nextLine().trim();
         if (answer.equalsIgnoreCase("yes")){
         System.out.println("Please enter product ID to remove it from the cart: ");
@@ -139,10 +150,15 @@ public class Store {
             totalAmount += product.getPrice();
         }
         System.out.printf("Total Amount: $%.2f%n", totalAmount);
-        System.out.println("Are you confirming a purchase? YES or NO");
+        System.out.println("Are you confirming a purchase? YES/NO");
         String answer = scanner.nextLine().trim();
         if (answer.equalsIgnoreCase("yes")){
-            System.out.println("");
+            System.out.printf("Thank you for conformation the total amount is $%.2f%n", totalAmount);
+            System.out.println("Please enter the bill amount to receive the change.");
+            double receivedMoney = scanner.nextDouble();
+            scanner.nextLine();
+            double change = totalAmount - receivedMoney;
+            System.out.printf("Your change: $%.2f%n" , change);
         }
 
 
