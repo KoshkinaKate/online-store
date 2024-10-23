@@ -97,7 +97,8 @@ public class Store {
             }
 
             // Ask if the user wants to add another item
-            System.out.println("Do you want to add another item? YES/NO");
+            System.out.println("==============================================\n" +
+                    "Do you want to add another item? YES/NO");
             moreProduct = scanner.nextLine().trim(); //infinite loop without it
         }
 
@@ -120,7 +121,8 @@ public class Store {
         }
         System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
         //removing items
-        System.out.println("Would you like to remove any item from your cart? YES/NO ");
+        System.out.println("==============================================\n"
+                + "Would you like to remove any item from your cart? YES/NO ");
         String answer = scanner.nextLine().trim();
         if (answer.equalsIgnoreCase("yes")){
         System.out.println("Please enter product ID to remove it from the cart: ");

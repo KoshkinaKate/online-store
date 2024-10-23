@@ -37,7 +37,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - IntelliJ IDEA: Used as the primary Integrated Development Environment (IDE) for coding and running the project.
 
 ## Demo
-### Displaying Available Product and The Total Price
+### Displaying Available Product
 ![AllProducts.png](imgs/AllProducts.png)
 ### Adding Product to the cart
 ![AddingProductsToTheCart.png](imgs/AddingProductsToTheCart.png)
